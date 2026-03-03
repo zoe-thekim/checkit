@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkit</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="app">
+    <header class="top">
+        <h1>checkit</h1>
+        <p class="subtitle">GitHub Pages edition</p>
+    </header>
+
+    <main>
+        <section id="today-view" class="view active">
+            <h2>오늘의 할 일</h2>
+            <form id="todo-form" class="todo-form">
+                <input id="todo-input" type="text" placeholder="할 일을 입력하세요" maxlength="120" required>
+                <button type="submit">추가</button>
+            </form>
+            <div class="progress-wrap">
+                <span id="today-progress-text">완성률 0% (0/0)</span>
+                <div class="progress-bar">
+                    <div id="today-progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+            <ul id="today-list" class="todo-list"></ul>
+        </section>
+
+        <section id="calendar-view" class="view">
+            <div class="calendar-head">
+                <button id="prev-month" type="button" aria-label="이전 달">‹</button>
+                <h2 id="month-label"></h2>
+                <button id="next-month" type="button" aria-label="다음 달">›</button>
+            </div>
+            <div id="calendar-grid" class="calendar-grid"></div>
+
+            <div class="selected-day-panel">
+                <h3 id="selected-day-title"></h3>
+                <div class="progress-wrap">
+                    <span id="selected-progress-text">완성률 0% (0/0)</span>
+                    <div class="progress-bar">
+                        <div id="selected-progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+                <ul id="selected-list" class="todo-list readonly"></ul>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <button id="tab-today" class="tab-btn active" type="button">오늘의 할 일</button>
+        <button id="tab-calendar" class="tab-btn" type="button">달력</button>
+    </nav>
+</div>
+<script src="./app.js"></script>
+</body>
+</html>
