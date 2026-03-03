@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    <header class="top">
+        <div class="title-row">
+            <div>
+                <h1>checkit</h1>
+                <p class="subtitle">Simple checklist</p>
+            </div>
+            <div class="user-row">
+                <span id="user-label"></span>
+                <button id="logout-btn" type="button">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="today-view" class="view active">
+            <h2 id="today-title">Today</h2>
+            <form id="todo-form" class="todo-form">
+                <input id="todo-input" type="text" placeholder="Add a task" maxlength="120" required>
+                <button type="submit">Add</button>
+            </form>
+            <div class="progress-wrap">
+                <span id="today-progress-text">Done 0%</span>
+                <div class="progress-bar">
+                    <div id="today-progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+            <ul id="today-list" class="todo-list"></ul>
+        </section>
+
+        <section id="calendar-view" class="view">
+            <div class="calendar-head">
+                <button id="prev-month" type="button" aria-label="previous month">Prev</button>
+                <h2 id="month-label"></h2>
+                <button id="next-month" type="button" aria-label="next month">Next</button>
+            </div>
+            <div id="calendar-grid" class="calendar-grid"></div>
+
+            <div class="selected-day-panel">
+                <h3 id="selected-day-title"></h3>
+                <div class="progress-wrap">
+                    <span id="selected-progress-text">Done 0%</span>
+                    <div class="progress-bar">
+                        <div id="selected-progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+                <ul id="selected-list" class="todo-list readonly"></ul>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <button id="tab-today" class="tab-btn active" type="button">Today</button>
+        <button id="tab-calendar" class="tab-btn" type="button">Calendar</button>
+    </nav>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

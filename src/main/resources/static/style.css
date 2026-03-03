@@ -1,0 +1,275 @@
+:root {
+    --bg: #f5f7f8;
+    --card: #ffffff;
+    --ink: #15212c;
+    --muted: #6f7d87;
+    --line: #dbe2e8;
+    --accent: #1c8f75;
+    --accent-soft: #dff5ef;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+    background: radial-gradient(circle at top right, #eaf4f1, var(--bg) 40%);
+    color: var(--ink);
+}
+
+.app {
+    max-width: 760px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 20px 16px 90px;
+}
+
+.top h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+.user-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.92rem;
+    color: var(--muted);
+}
+
+#logout-btn {
+    border: none;
+    background: #d9ece6;
+    color: #245447;
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.subtitle {
+    margin: 6px 0 0;
+    color: var(--muted);
+}
+
+.view {
+    display: none;
+    margin-top: 18px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.view.active {
+    display: block;
+}
+
+.todo-form {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0 14px;
+}
+
+.todo-form input {
+    flex: 1;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 1rem;
+}
+
+.todo-form button,
+.tab-btn,
+.calendar-head button {
+    border: none;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+}
+
+.todo-form button {
+    padding: 10px 14px;
+}
+
+.progress-wrap {
+    margin: 6px 0 14px;
+}
+
+.progress-wrap span {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 999px;
+    background: #edf1f4;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0;
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.2s ease;
+}
+
+.todo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.todo-item {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #fff;
+}
+
+.todo-item label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.todo-item input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+}
+
+.todo-item .text {
+    overflow-wrap: anywhere;
+}
+
+.todo-item.done {
+    background: #f1f3f5;
+    color: #79838b;
+}
+
+.todo-item.done .text {
+    text-decoration: line-through;
+}
+
+.calendar-head {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    gap: 8px;
+}
+
+.calendar-head h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.calendar-head button {
+    height: 38px;
+}
+
+.calendar-grid {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.weekday,
+.date-cell {
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+}
+
+.weekday {
+    font-size: 0.84rem;
+    color: var(--muted);
+}
+
+.date-cell {
+    border: 1px solid var(--line);
+    background: #fff;
+    cursor: pointer;
+}
+
+.date-cell.other {
+    color: #a3afb8;
+}
+
+.date-cell.selected {
+    background: var(--accent-soft);
+    border-color: #9fdaca;
+    font-weight: 600;
+}
+
+.date-cell.has-done {
+    box-shadow: inset 0 -3px 0 #88ceb9;
+}
+
+.selected-day-panel {
+    margin-top: 14px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+}
+
+.selected-day-panel h3 {
+    margin: 0 0 8px;
+}
+
+.readonly .todo-item {
+    pointer-events: none;
+}
+
+.bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    background: rgba(245, 247, 248, 0.95);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+    padding: 10px 16px;
+}
+
+.tab-btn {
+    padding: 12px 10px;
+    background: #8ca9a0;
+}
+
+.tab-btn.active {
+    background: var(--accent);
+}
+
+@media (max-width: 520px) {
+    .app {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .top h1 {
+        font-size: 1.7rem;
+    }
+
+    .title-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

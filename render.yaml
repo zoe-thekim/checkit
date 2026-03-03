@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: checkit
+    runtime: docker
+    plan: free
+    healthCheckPath: /login.html
+    envVars:
+      - key: H2_DB_URL
+        value: jdbc:h2:file:/data/checkit;AUTO_SERVER=TRUE
+      - key: H2_DB_PASSWORD
+        generateValue: true
+      - key: H2_CONSOLE_ENABLED
+        value: "false"
+    disk:
+      name: checkit-data
+      mountPath: /data
+      sizeGB: 1
